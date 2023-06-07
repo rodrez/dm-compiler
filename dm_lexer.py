@@ -4,18 +4,24 @@ from enum import Enum
 # We need to set the token types
 class TokenType(Enum):
     """Simple enum that holds the token types"""
+
     IDENTIFIER = "IDENTIFIER "
     NUMBER = "NUMBER"
     ASSIGN = "ASSIGN"
     PLUS = "PLUS"
+    MINUS = "MINUS"
     MULTIPLY = "MULTIPLY"
+    DIVIDE = "DIVIDE"
     NEWLINE = "NEWLINE"
     COMMENT = "COMMENT"
+    LEFT_PAREN = "LEFT_PAREN"
+    RIGHT_PAREN = "RIGHT_PAREN"
 
 
 # We need to create the lexer class
 class Lexer:
     """Helps to tokenize the characters in the source code."""
+
     def __init__(self, source_code):
         self.source_code = source_code
         self.position = 0
@@ -104,6 +110,7 @@ class Lexer:
 
 class Token:
     """Returns the token representation"""
+
     def __init__(self, token_type, value) -> None:
         self.token_type = token_type
         self.value = value
